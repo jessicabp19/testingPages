@@ -12,14 +12,12 @@ const Routes = () => {
     })
     return (
         <Switch>
-            <Route exact path = "/tytusx/20211SVAC/G17" component={Navigation}/>
             <Route exact path = "/" component={Navigation}/>
-            <Route exact path = "/tytusx/20211SVAC/G30" component={Navigation}/>
-            <Route exact path = "/tytusx/G30" component={Navigation}/>
-            <Route exact path = "/tytusx/G30/reporte" component={Reporte}/>
-            <Route exact path = "/tytusx/G30/reporteTabla" component={TablaSimbolos}/>
-            <Route exact path = "/tytusx/G30/reporteErrores" component={TablaErrores}/>
-            <Route exact path = "/tytusx/G30/reporteGramatical" component={Gramatical}/>
+            <Route exact path = "/testingPages" component={Navigation}/>
+            <Route exact path = "/reporte" component={Reporte}/>
+            <Route exact path = "/reporteTabla" component={TablaSimbolos}/>
+            <Route exact path = "/reporteErrores" component={TablaErrores}/>
+            <Route exact path = "/reporteGramatical" component={Gramatical}/>
         </Switch>
     );
 }

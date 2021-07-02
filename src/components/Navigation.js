@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import React from 'react';
 import { parse as parseXPath } from '../code/analizadorXPath/Xpath'
-import { parse as parseXQuery } from '../code/analizadorXQuery/gram_xquery'
+//import { parse as parseXQuery } from '../code/analizadorXQuery/gram_xquery'
 import { UnControlled as CodeMirror } from 'react-codemirror2'
 import { GeneradorC3D } from "../code/analizadorXML/generadorC3D";
 
@@ -17,6 +17,8 @@ require('../../node_modules/codemirror/mode/clike/clike')
 
 //const XPath = require('../code/analizadorXPath/Xpath')
 const grammar = require('../code/analizadorXML/grammar')
+
+const parseXQuery = require('../code/analizadorXQuery/gram_xquery')
 //const GeneradorC3D = require('../code/analizadorXML/generadorC3D')
 
 
