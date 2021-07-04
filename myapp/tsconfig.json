@@ -23,6 +23,11 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "code/**/*.ts"
+    "code/**/*.ts",
+    "code/analizadorXQuery/AST/*.ts",
+    "code/analizadorXQuery/Expresiones/*.ts",
+    "code/analizadorXQuery/Instrucciones/*.ts",
+    "code/analizadorXQuery/Interfaces/*.ts",
+    "code/analizadorXQuery/*.ts"
   ]
 }
