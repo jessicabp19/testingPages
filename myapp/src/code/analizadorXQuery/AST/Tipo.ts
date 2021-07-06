@@ -11,5 +11,6 @@ export enum Tipo {
     DOUBLE = 'DOUBLE',
     FLOAT = 'FLOAT',
     NULL = 'NULL',
+    PATH = 'PATH',
     VOID = 'VOID'
 }

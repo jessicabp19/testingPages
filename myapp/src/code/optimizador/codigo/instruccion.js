@@ -1,8 +1,14 @@
 "use strict";
 exports.__esModule = true;
-exports.tipoInstruccion = exports.Instruccion = void 0;
+exports.tipoInstruccion = exports.Instruccion = exports.comprimidoInst = void 0;
+var comprimidoInst = /** @class */ (function () {
+    function comprimidoInst() {
+    }
+    return comprimidoInst;
+}());
+exports.comprimidoInst = comprimidoInst;
 var Instruccion = /** @class */ (function () {
-    function Instruccion(tipo, cadena, resultado, arg1, arg2, operador) {
+    function Instruccion(tipo, cadena, resultado, operador, arg1, arg2) {
         this.tipo = tipo;
         this.resultado = resultado;
         this.arg1 = arg1;

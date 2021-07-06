@@ -11,6 +11,7 @@ export class Where implements Instruccion {
     public arreglo: any;
     public identificador: string;
     public consulta: string;
+    public errores = [];
 
     constructor(linea: number, columna: number, arreglo: any, identificador: string) {
         this.linea = linea;
@@ -23,7 +24,6 @@ export class Where implements Instruccion {
     ejecutar(ent: Entorno) {
 
         if (ent.existeEnActual(this.identificador)) {
-
             var output = [];
             //creando la consulta
             this.consulta = this.CrearConsulta();
@@ -31,23 +31,13 @@ export class Where implements Instruccion {
             var parserXPath = new parse(this.consulta);
             //valor de la tabla de simbolos
             var data = ent.getSimbolo(this.identificador).valor;
-            
             //recorrer objetos
             data.forEach(dato => {
                 //se ejecuta el path
                 var resultado_xpath = parserXPath.Ejecutar(dato);
                 //se analiza y se ejecuta la nueva salida
                 var resultado_xml = grammar.parse(resultado_xpath);
-
                 if (resultado_xml.datos.hijos.length > 0) {
-
-                    
-
-                    //guardando los hijos como variables
-                    //output.push(resultado_xml.datos.hijos[0])
-
-
-
                     let root = {
                         atributos: data.atributos,
                         columna: data.columna,
@@ -68,6 +58,15 @@ export class Where implements Instruccion {
 
         } else {
             console.log('La variable en cuestion no existe, error semantico..')
+            this.errores.push({
+                Tipo:'Sintáctico', 
+                Fila: this.linea, 
+                Columna: this.columna, 
+                Description: 'No existe la variable '+this.identificador+' en el entorno actual'
+            });
+            var err = this.GetErrorStorage();
+            this.errores = this.errores.concat(err);
+            this.SetStorage(this.errores);
         }
 
 
@@ -81,6 +80,15 @@ export class Where implements Instruccion {
         });
         consulta += '[' + predicate + ']'
         return consulta;
+    }
+    //obtener contador
+    GetErrorStorage(): any {
+        var data = localStorage.getItem('errores_xquery');
+        return JSON.parse(data);
+    }
+    //actualizar contador
+    SetStorage(error: any) {
+        localStorage.setItem('errores_xquery', JSON.stringify(error));
     }
 
 }

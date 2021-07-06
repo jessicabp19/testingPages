@@ -1,3 +1,7 @@
+export class comprimidoInst {
+    
+}
+
 export class Instruccion {
     tipo: string;
     resultado: string;
@@ -6,7 +10,7 @@ export class Instruccion {
     operador: string;
     cadena: string;
 
-    constructor (tipo: string, cadena:string, resultado: string, arg1: string, arg2:string, operador:string ) {
+    constructor (tipo: string, cadena:string, resultado: string, operador:string, arg1: string, arg2:string ) {
         this.tipo = tipo;
         this.resultado = resultado;
         this.arg1 = arg1;

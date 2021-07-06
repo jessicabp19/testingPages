@@ -7,42 +7,40 @@ export class Primitivo implements Expresion {
     columna: number;
     valor: any;
 
-    constructor(valor:any, linea:number, columna:number){
+    constructor(valor: any, linea: number, columna: number) {
         this.linea = linea;
         this.columna = columna;
         this.valor = valor;
     }
 
-    getTipo(ent: Entorno): Tipo {
+    getTipo(ent: Entorno): Tipo {       
         const valor = this.getValorImplicito(ent);
-        if (typeof(valor) === 'boolean')
-        {
+        if (typeof (valor) === 'boolean') {
             return Tipo.BOOLEAN;
         }
-        else if (typeof(valor) === 'string')
-        {
+        else if (typeof (valor) === 'string') {
             return Tipo.STRING;
         }
-        else if (typeof(valor) === 'number')
-        {
-            if(this.isInt(Number(valor))){
+        else if (typeof (valor) === 'number') {
+            if (this.isInt(Number(valor))) {
                 return Tipo.INT;
             }
-           return Tipo.DOUBLE;
+            return Tipo.DOUBLE;
         }
-        else if(valor === null){
+        else if (valor === null) {
             return Tipo.NULL;
         }
-            
+
         return Tipo.VOID;
     }
 
     getValorImplicito(ent: Entorno) {
+
         return this.valor;
     }
 
-    isInt(n:number){
+    isInt(n: number) {
         return Number(n) === n && n % 1 === 0;
     }
-    
+
 }

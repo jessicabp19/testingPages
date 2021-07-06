@@ -108,6 +108,7 @@ export class Comando
       {
         Salida += retorno.valor + "\n"
       }
+      console.log(Salida);
     }
     this.errores = this.errores.concat(ErroresGlobal)
     return Salida;

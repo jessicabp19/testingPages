@@ -9,7 +9,7 @@ export class Simbolo implements Expresion {
     public tipo: Tipo;
     linea: number;
     columna: number;
-
+ 
     constructor(id:string, tipo:Tipo,  linea:number, columna:number, valor:any){
         this.identificador = id;
         this.linea = linea;
