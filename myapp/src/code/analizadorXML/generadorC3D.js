@@ -356,9 +356,9 @@ export class GeneradorC3D {
         this.traduccionC3D += this.getTraduccionXML(ent);
         //this.traduccionC3D += this.getMyXpath();
         this.traduccionC3D += "\n// ================== XPATH1 =================== \n"
-        this.getTraduccionXpath();
+        //this.getTraduccionXpath();
         //this.traduccionC3D += this.getSimpleXpath(output);
-        this.traduccionC3D += `\nSP = SP+${this.SP-1};\nprintQuery();`;
+        //this.traduccionC3D += `\nSP = SP+${this.SP-1};\nprintQuery();`;
             
         this.traduccionC3D += this.getFinal();
 
