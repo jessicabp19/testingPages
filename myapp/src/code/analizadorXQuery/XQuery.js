@@ -88,6 +88,7 @@ case 1:
                            /*  //guardando variable de inicio
                             let cont_ini = cont_temp; */
                             //generando codigo 3d
+                            console.log(variables)
                             var mainc3d = new MainC3D(_$[$0-1].first_line, _$[$0-1].first_column, variables, returns, cont_temp, SP, HP );
                             //[codigo, contador]
                             var code = mainc3d.ejecutar(Arbol_AST.getEntorno('global'));
@@ -104,6 +105,15 @@ case 1:
                            // Arbol_AST.AddC3D(code_header);
                             //SE AGREGA LA RESPUESTA
                             Arbol_AST.addResultado(this.$);
+                            //agregando erres
+                            var data = JSON.parse(localStorage.getItem('errores_xquery'));
+                            if (data != null ) {for(let dat of data){
+                                if (dat != null){
+                                    errores.push(dat);
+                                    break;
+                                    }
+                                }
+                            }
                             Arbol_AST.addErrores(errores);
                             
                             console.log(Arbol_AST)
@@ -157,13 +167,18 @@ case 8:
                                                     }
                                                 }
                                                 //ejecutando let
+                                                
                                                 if($$[$0-3] != undefined){
-                                                    for(let inst_let of $$[$0-3]){
-                                                    inst_let.ejecutar(Arbol_AST.getEntorno('flwor'));
-                                                    variables.push(inst_let.VariableC3D(Arbol_AST.getEntorno('flwor')));
-                                                    
+                                                    for(let inst_let of $$[$0-3]){    
+                                                        inst_let.ejecutar(Arbol_AST.getEntorno('flwor'));
+                                                        
+                                                        if ( inst_let.VariableC3D(Arbol_AST.getEntorno('flwor'))[0] != 'return' ){
+                                                            variables.push(inst_let.VariableC3D(Arbol_AST.getEntorno('flwor')));
+                                                        }
+                                                        
                                                     }
                                                 }
+                                                
                                                 if($$[$0-2] != undefined){
                                                     //ejecutando where
                                                     for(let inst_where of $$[$0-2]){
@@ -172,8 +187,9 @@ case 8:
                                                 }
                                                 //ejecutando return
                                                 this.$ = $$[$0].ejecutar(Arbol_AST.getEntorno('flwor'));
-                                                console.log($$[$0])
-                                                returns = $$[$0].VariableC3D(Arbol_AST.getEntorno('global'));
+                                                
+                                                returns = $$[$0].VariableC3D(Arbol_AST.getEntorno('flwor'));
+                                                console.log($$[$0].VariableC3D(Arbol_AST.getEntorno('flwor')))
                                             
 break;
 case 9:

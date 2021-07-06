@@ -46,7 +46,7 @@ export class UpperCase implements Expresion {
             return texto.toUpperCase();
         }else{
             this.errores.push({
-                Tipo:'Sintáctico', 
+                Tipo:'Semántico', 
                 Fila: this.linea, 
                 Columna: this.columna, 
                 Description: 'Tipo de dato '+typeof(texto)+' incorrecto'

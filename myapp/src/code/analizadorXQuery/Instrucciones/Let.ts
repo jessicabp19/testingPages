@@ -40,6 +40,7 @@ export class Let implements Instruccion {
     }
 
     VariableC3D(ent: Entorno):any{
+        console.log(this.identificador)
         try {
             var variable = [];
             var id = this.identificador;
@@ -74,10 +75,6 @@ export class Let implements Instruccion {
             return variable;
         }
 
-
-
-
-        
     }
 
     //obtener tabla simbolos

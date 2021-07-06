@@ -197,7 +197,7 @@ export class GeneradorC3D {
 
     getTraduccionXpath(){
         let xpathSyntax = this.GetStorage('path');
-        if (xpathSyntax=="") return "//NO HAY CONSULTA EN XPATH\n"
+        if (xpathSyntax==null) return "//NO HAY CONSULTA EN XPATH\n"
 
         let xpathRes = this.GetStorage('new_xml');
         var listaInstrucciones = fase2x.parse(xpathSyntax);
@@ -346,7 +346,7 @@ export class GeneradorC3D {
    
 
     getTraduccionCompleta(ent){   
-        this.traduccionC3D += this.getNatives();     
+        //this.traduccionC3D += this.getNatives();     
         //this.traduccionC3D += this.getMain();
         
         this.traduccionC3D += "\n// ================== XQUERY1 =================== \n"

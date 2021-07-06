@@ -14,7 +14,7 @@ var For = /** @class */ (function () {
         this.identificador = identificador;
     }
     For.prototype.ejecutar = function (ent) {
-        if (typeof this.path == 'string') {
+        if (typeof (this.path) == 'string') {
             var output = [];
             //se analiza el path
             var parserXPath = new parse(this.path);
@@ -45,7 +45,8 @@ var For = /** @class */ (function () {
             //creamos una variable en la tabla de simbolos del entorno global y le mandamos el objeto como valor  
             var new_simbol = new Simbolo_1.Simbolo(this.identificador, Tipo_1.Tipo.OBJETO, this.linea, this.columna, output);
             var simb = [];
-            simb = simb.concat(this.GetTablaStorage());
+            if (this.GetTablaStorage() != null)
+                simb = simb.concat(this.GetTablaStorage());
             simb.push(new_simbol);
             this.SetTablaStorage(simb);
             //se agrega el simbolo al entorno
@@ -61,7 +62,7 @@ var For = /** @class */ (function () {
             var num2 = this.path[1];
             if (num1 > num2) {
                 this.errores.push({
-                    Tipo: 'Sintáctico',
+                    Tipo: 'Semántico',
                     Fila: this.linea,
                     Columna: this.columna,
                     Description: 'Los datos de la cadena son invalidos'
@@ -77,7 +78,11 @@ var For = /** @class */ (function () {
             }
             //creamos una variable en la tabla de simbolos del entorno FLWOR y le mandamos el objeto como valor  
             var new_simbol = new Simbolo_1.Simbolo(this.identificador, Tipo_1.Tipo.OBJETO, this.linea, this.columna, arreglo);
-            this.SetTablaStorage(new_simbol);
+            var simb = [];
+            if (this.GetTablaStorage() != null)
+                simb = simb.concat(this.GetTablaStorage());
+            simb.push(new_simbol);
+            this.SetTablaStorage(simb);
             //se agrega el simbolo al entorno
             ent.agregar(new_simbol);
         }

@@ -59,7 +59,7 @@ export class Where implements Instruccion {
         } else {
             console.log('La variable en cuestion no existe, error semantico..')
             this.errores.push({
-                Tipo:'Sintáctico', 
+                Tipo:'Semántico', 
                 Fila: this.linea, 
                 Columna: this.columna, 
                 Description: 'No existe la variable '+this.identificador+' en el entorno actual'

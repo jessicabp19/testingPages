@@ -135,28 +135,38 @@ class Navigation extends React.Component {
         this.setState({ TablaGramticalXPath: funcion.tablaGramatica });
         */
 
-
-
+        //reseteando localstorage
+        localStorage.removeItem('tabla');
+        localStorage.removeItem('errores_xquery');
         //LLAMANDO AL ANALIZADOR DE XQUERY
         try {
             let interprete = new Interprete();
             //Parseo = AST
             let parseo = interprete.interpretar(text);
-            console.log(parseo);
-            //parseo.AddErrores([... new Set(errores)]);
-            this.setState({ OutputTextarea: parseo.GetRespuesta().toString() });
 
-            console.log(parseo.errores)
-            console.log(parseo.entornos)
-            
-            //localStorage.removeItem('errores_xquery');
-            var generadorC3D = new GeneradorC3D();
-            let resultadoXML = this.state.XML
-            this.setState({ Codigo3D: generadorC3D.getTraduccionCompleta(resultadoXML, parseo.toString()) })
-            this.setState({ XML: resultadoXML })
+            if (parseo.errores.length == 0) {
+                //parseo.AddErrores([... new Set(errores)]);
+                this.setState({ OutputTextarea: parseo.GetRespuesta().toString() });
+                //localStorage.removeItem('errores_xquery');
+                var generadorC3D = new GeneradorC3D();
+                let resultadoXML = this.state.XML
+                this.setState({ Codigo3D: generadorC3D.getTraduccionCompleta(resultadoXML, parseo.toString()) })
+                this.setState({ XML: resultadoXML })
+
+            } else {
+                //errores 
+                this.setState({ OutputTextarea: 'No matches found..' });
+                //guardando errores nuevos
+                localStorage.setItem('errores_xquery', JSON.stringify(parseo.errores));
+                alert('Errores en el analisis de XQuery');
+            }
+
         } catch (error) {
             //errores 
+            console.log(error)
             this.setState({ OutputTextarea: 'No matches found..' });
+            console.log(JSON.parse(localStorage.getItem('errores_xquery')))
+            alert('Errores en el analisis de XQuery');
         }
 
         var generadorC3D = new GeneradorC3D();

@@ -85,7 +85,7 @@ export class Operacion implements Expresion {
                 else {
                     console.log("Error de tipos de datos no permitidos realizando una suma");
                     this.errores.push({
-                        Tipo: 'Sintáctico',
+                        Tipo: 'Semántico',
                         Fila: this.linea,
                         Columna: this.columna,
                         Description: 'Tipos de dato ' + type1 + ' y ' + type2 + ' incorrectos'
@@ -135,7 +135,7 @@ export class Operacion implements Expresion {
                 else {
                     console.log("Error de tipos de datos no permitidos realizando una suma");
                     this.errores.push({
-                        Tipo: 'Sintáctico',
+                        Tipo: 'Semántico',
                         Fila: this.linea,
                         Columna: this.columna,
                         Description: 'Tipos de dato ' + type1 + ' y ' + type2 + ' incorrectos'
@@ -152,7 +152,7 @@ export class Operacion implements Expresion {
                     if (op2 === 0) {
                         console.log("Resultado indefinido, no puede ejecutarse operación sobre cero.");
                         this.errores.push({
-                            Tipo: 'Sintáctico',
+                            Tipo: 'Semántico',
                             Fila: this.linea,
                             Columna: this.columna,
                             Description: 'Valores incorrectos'
@@ -168,7 +168,7 @@ export class Operacion implements Expresion {
                     if (op2 === 0) {
                         console.log("Resultado indefinido, no puede ejecutarse operación sobre cero.");
                         this.errores.push({
-                            Tipo: 'Sintáctico',
+                            Tipo: 'Semántico',
                             Fila: this.linea,
                             Columna: this.columna,
                             Description: 'Valores incorrectos'
@@ -184,7 +184,7 @@ export class Operacion implements Expresion {
                     if (Number(op2[0]) === 0) {
                         console.log("Resultado indefinido, no puede ejecutarse operación sobre cero.");
                         this.errores.push({
-                            Tipo: 'Sintáctico',
+                            Tipo: 'Semántico',
                             Fila: this.linea,
                             Columna: this.columna,
                             Description: 'Valores incorrectos'
@@ -199,7 +199,7 @@ export class Operacion implements Expresion {
                 else {
                     console.log("Error de tipos de datos no permitidos realizando una suma");
                     this.errores.push({
-                        Tipo: 'Sintáctico',
+                        Tipo: 'Semántico',
                         Fila: this.linea,
                         Columna: this.columna,
                         Description: 'Tipos de dato ' + type1 + ' y ' + type2 + ' incorrectos'
@@ -216,7 +216,7 @@ export class Operacion implements Expresion {
                     if (op2 === 0) {
                         console.log("Resultado indefinido, no puede ejecutarse operación sobre cero.");
                         this.errores.push({
-                            Tipo: 'Sintáctico',
+                            Tipo: 'Semántico',
                             Fila: this.linea,
                             Columna: this.columna,
                             Description: 'Valores incorrectos'
@@ -231,7 +231,7 @@ export class Operacion implements Expresion {
                 else {
                     console.log("Error de tipos de datos no permitidos realizando una suma");
                     this.errores.push({
-                        Tipo: 'Sintáctico',
+                        Tipo: 'Semántico',
                         Fila: this.linea,
                         Columna: this.columna,
                         Description: 'Tipos de dato ' + type1 + ' y ' + type2 + ' incorrectos'
@@ -265,7 +265,7 @@ export class Operacion implements Expresion {
                 else {
                     console.log("Error de tipos de datos no permitidos realizando una comparación");
                     this.errores.push({
-                        Tipo: 'Sintáctico',
+                        Tipo: 'Semántico',
                         Fila: this.linea,
                         Columna: this.columna,
                         Description: 'Tipos de dato ' + type1 + ' y ' + type2 + ' incorrectos'
@@ -299,7 +299,7 @@ export class Operacion implements Expresion {
                 else {
                     console.log("Error de tipos de datos no permitidos realizando una comparación");
                     this.errores.push({
-                        Tipo: 'Sintáctico',
+                        Tipo: 'Semántico',
                         Fila: this.linea,
                         Columna: this.columna,
                         Description: 'Tipos de dato ' + type1 + ' y ' + type2 + ' incorrectos'
@@ -336,7 +336,7 @@ export class Operacion implements Expresion {
                 else {
                     console.log("Error de tipos de datos no permitidos realizando una comparación");
                     this.errores.push({
-                        Tipo: 'Sintáctico',
+                        Tipo: 'Semántico',
                         Fila: this.linea,
                         Columna: this.columna,
                         Description: 'Tipos de dato ' + type1 + ' y ' + type2 + ' incorrectos'
@@ -370,7 +370,7 @@ export class Operacion implements Expresion {
                 else {
                     console.log("Error de tipos de datos no permitidos realizando una comparación");
                     this.errores.push({
-                        Tipo: 'Sintáctico',
+                        Tipo: 'Semántico',
                         Fila: this.linea,
                         Columna: this.columna,
                         Description: 'Tipos de dato ' + type1 + ' y ' + type2 + ' incorrectos'

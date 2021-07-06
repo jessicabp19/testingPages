@@ -31,6 +31,7 @@ var Let = /** @class */ (function () {
         localStorage.setItem('contador', JSON.stringify(contador));
     };
     Let.prototype.VariableC3D = function (ent) {
+        console.log(this.identificador);
         try {
             var variable = [];
             var id = this.identificador;

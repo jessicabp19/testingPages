@@ -11,19 +11,26 @@ class SimbolosXQ extends React.Component {
         this.XML = this.props.location.XML;
 
         this.table = [];
-        
-        this.SimbolosXquery=this.GetTablaStorage();
 
+        this.SimbolosXquery = this.GetTablaStorage();
+        console.log(this.SimbolosXquery)
         this.readSimbols(this.SimbolosXquery);
+        console.log(this.table)
     }
 
-    readSimbols(ent){
-        this.table.push({
-            nombre: "----",
-            tipo: "----",
-            fila: "---",
-            columna: "----"
-        });
+    readSimbols(ent) {
+        for (let simb of ent) {
+            if (simb != null) {
+                this.table.push({
+                    identificador: simb.identificador.toString(),
+                    linea: simb.linea.toString(),
+                    columna: simb.columna.toString(),
+                    tipo: simb.tipo.toString(),
+                    valor: simb.valor.toString()
+                });
+            }
+        }
+
         /*this.table.push({
             nombre: ent.identificador,
             tipo: ent.tipo,
@@ -32,7 +39,7 @@ class SimbolosXQ extends React.Component {
         });*/
     }
 
-    GetTablaStorage(){
+    GetTablaStorage() {
         var data = localStorage.getItem('tabla');
         return JSON.parse(data);
     }

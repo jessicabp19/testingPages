@@ -56,7 +56,7 @@ export class Path implements Expresion {
         } else {
             console.log('La variable '+this.valor+' no existe, error semantico..')
             this.errores.push({
-                Tipo: 'Sintáctico',
+                Tipo: 'Semántico',
                 Fila: this.linea,
                 Columna: this.columna,
                 Description: 'La variable '+this.valor+' no existe'

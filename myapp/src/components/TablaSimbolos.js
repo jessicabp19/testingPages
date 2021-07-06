@@ -12,6 +12,7 @@ class TablaSimbolos extends React.Component {
 
         this.table = [];
         this.readSimbols(this.XML);
+        console.log(this.table)
     }
 
     readSimbols(ent) {

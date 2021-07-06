@@ -70,7 +70,7 @@ export class Variable implements Expresion {
         else {
             console.log('No existe la variable en el entorno actual')
             this.errores.push({
-                Tipo:'Sintáctico', 
+                Tipo:'Semántico', 
                 Fila: this.linea, 
                 Columna: this.columna, 
                 Description: 'No existe la variable'+this.identificador+'en el entorno actual'

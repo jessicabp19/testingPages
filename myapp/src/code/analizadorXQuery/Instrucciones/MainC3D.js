@@ -15,9 +15,12 @@ var MainC3D = /** @class */ (function () {
         var flag = false;
         var id = 'return';
         console.log(this.variables);
+        console.log(this.returns);
         for (var _i = 0, _a = this.variables; _i < _a.length; _i++) {
             var vari = _a[_i];
-            if (JSON.stringify(vari[1]) === JSON.stringify(this.returns)) {
+            console.log(JSON.stringify(vari[1])); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            console.log(JSON.stringify(this.returns));
+            if (JSON.stringify(vari[1]) == JSON.stringify(this.returns)) {
                 flag = true;
                 id = vari[0];
             }
@@ -43,6 +46,7 @@ var MainC3D = /** @class */ (function () {
         var stack = [];
         var output = '/*------MAIN------*/\nvoid main() {\n PQ = 0; HQ = 0;\n SP = 0; HP = 0;\n SPXP = 0; HPXP = 0;\n\n';
         //recorriendo las variables
+        console.log(variables);
         for (var _i = 0, variables_1 = variables; _i < variables_1.length; _i++) {
             var variable = variables_1[_i];
             if (variable[1].length == 1) {
@@ -68,6 +72,8 @@ var MainC3D = /** @class */ (function () {
         //recorremos el stack nuevamente
         for (var i = 0; i < stack.length; i++) {
             //validando posicion del valor a imprimir
+            console.log(stack[i][0]);
+            console.log(id);
             if (stack[i][0] == id) {
                 //i es la posicion del stack donde se imprime
                 //validando si es un numero
@@ -110,6 +116,7 @@ var MainC3D = /** @class */ (function () {
                 }
             }
         }
+        console.log(output);
         //TODO: setear cont_label en el local storage
         this.SetStorage(cont_label, 'contadorEtiquetas');
         this.SetStorage(cont, 'contadorTemporales');

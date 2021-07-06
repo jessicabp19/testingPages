@@ -9,10 +9,21 @@ class TablaErrores extends React.Component {
         super(props);
         this.Mistakes = this.props.location.Mistakes;
         this.MistakesXPath = this.props.location.MistakesXPath;
+        this.MistakesXQuery = []
+        var errTemp = this.GetErrStorage();
+        if (errTemp != null){
+            for (let err of errTemp){
+                if (err != null) this.MistakesXQuery = this.GetErrStorage()
+            }
+        }
         console.log("Aqui estan los errores XML");
         console.log(this.Mistakes);
         console.log("Aqui estan los errores XPath");
         console.log(this.MistakesXPath);
+        console.log("Aqui estan los errores XQuery");
+        console.log(this.MistakesXQuery);
+
+
     }
 
 
@@ -128,6 +139,54 @@ class TablaErrores extends React.Component {
                 <p></p>
                 <p></p>
 
+                <div className="row">
+                    <label> Tabla de Errores XQuery </label>
+                </div>
+
+
+                <p></p>
+                <p></p>
+                <p></p>
+
+                <div className="container">
+                    <div className="row">
+
+                        <table className="table table-dark">
+                            <thead>
+                                <tr>
+                                    <th>Tipo</th>
+                                    <th>Fila</th>
+                                    <th>Columna</th>
+                                    <th>Descripción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    this.MistakesXQuery.map(function (item) {
+                                        return (
+                                            <tr>
+                                                <td>{item.Tipo.toString()}</td>
+                                                <td>{item.Fila.toString()}</td>
+                                                <td>{item.Columna.toString()}</td>
+                                                <td>{item.Description.toString()}</td>
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </tbody>
+                        </table>
+
+
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
                 <footer className="bg-dark text-center text-lg-start">
                     <div className="text-center p-3 text-light ">
                         <font size="3">
@@ -139,6 +198,10 @@ class TablaErrores extends React.Component {
                 </footer>
             </header>
         );
+    }
+    GetErrStorage() {
+        var data = localStorage.getItem('errores_xquery');
+        return JSON.parse(data);
     }
 
 }

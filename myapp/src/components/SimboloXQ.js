@@ -16,25 +16,23 @@ export default class SimboloXQ extends React.Component {
       <table className="table table-dark"> 
         <thead> 
           <tr> 
-            <th>Nombre</th> 
-            <th>Tipo</th>
-            <th>Valor</th>
-            <th>Ambito</th> 
-            <th>Fila</th> 
+            <th>Identificador</th> 
+            <th>Linea</th>
             <th>Columna</th>
-            <th>PosicionStack</th> 
+            <th>Tipo</th> 
+            <th>Valor</th> 
           </tr> 
         </thead>
         <tbody>
           { this.data.map(function(item){
             return (
-              <tr>
-                <td>{item.nombre}</td>
-                <td>{item.tipo}</td>
-                {/* <td>{item.valor}</td>
-                <td>{item.ambito}</td> */}
-                <td>{item.fila}</td>
+              <tr key={item.identificador} >
+                <td>{item.identificador}</td>
+                <td>{item.linea}</td>
                 <td>{item.columna}</td>
+                <td>{item.tipo}</td>
+                <td>{item.valor}</td>
+                
                 {/* <td>{item.stackPosition}</td> */}
               </tr>
             )

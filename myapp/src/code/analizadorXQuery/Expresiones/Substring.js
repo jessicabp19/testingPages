@@ -44,7 +44,7 @@ var Substring = /** @class */ (function () {
         else {
             console.log('Valores incorrectos al llamar la funcion..');
             this.errores.push({
-                Tipo: 'Sintáctico',
+                Tipo: 'Semántico',
                 Fila: this.linea,
                 Columna: this.columna,
                 Description: 'Valores incorrectos al llamar la funcion'

@@ -239,6 +239,7 @@ BEGIN: INSTRUCCIONES EOF {
                            /*  //guardando variable de inicio
                             let cont_ini = cont_temp; */
                             //generando codigo 3d
+                            console.log(variables)
                             var mainc3d = new MainC3D(@1.first_line, @1.first_column, variables, returns, cont_temp, SP, HP );
                             //[codigo, contador]
                             var code = mainc3d.ejecutar(Arbol_AST.getEntorno('global'));
@@ -255,6 +256,15 @@ BEGIN: INSTRUCCIONES EOF {
                            // Arbol_AST.AddC3D(code_header);
                             //SE AGREGA LA RESPUESTA
                             Arbol_AST.addResultado($$);
+                            //agregando erres
+                            var data = JSON.parse(localStorage.getItem('errores_xquery'));
+                            if (data != null ) {for(let dat of data){
+                                if (dat != null){
+                                    errores.push(dat);
+                                    break;
+                                    }
+                                }
+                            }
                             Arbol_AST.addErrores(errores);
                             
                             console.log(Arbol_AST)
@@ -301,13 +311,18 @@ FLWOR: FOR LET WHERE ORDER RETURN           {
                                                     }
                                                 }
                                                 //ejecutando let
+                                                
                                                 if($2 != undefined){
-                                                    for(let inst_let of $2){
-                                                    inst_let.ejecutar(Arbol_AST.getEntorno('flwor'));
-                                                    variables.push(inst_let.VariableC3D(Arbol_AST.getEntorno('flwor')));
-                                                    
+                                                    for(let inst_let of $2){    
+                                                        inst_let.ejecutar(Arbol_AST.getEntorno('flwor'));
+                                                        
+                                                        if ( inst_let.VariableC3D(Arbol_AST.getEntorno('flwor'))[0] != 'return' ){
+                                                            variables.push(inst_let.VariableC3D(Arbol_AST.getEntorno('flwor')));
+                                                        }
+                                                        
                                                     }
                                                 }
+                                                
                                                 if($3 != undefined){
                                                     //ejecutando where
                                                     for(let inst_where of $3){
@@ -316,8 +331,9 @@ FLWOR: FOR LET WHERE ORDER RETURN           {
                                                 }
                                                 //ejecutando return
                                                 $$ = $5.ejecutar(Arbol_AST.getEntorno('flwor'));
-                                                console.log($5)
-                                                returns = $5.VariableC3D(Arbol_AST.getEntorno('global'));
+                                                
+                                                returns = $5.VariableC3D(Arbol_AST.getEntorno('flwor'));
+                                                console.log($5.VariableC3D(Arbol_AST.getEntorno('flwor')))
                                             }                                         
 ;
  

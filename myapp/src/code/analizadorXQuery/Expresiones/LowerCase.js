@@ -37,7 +37,7 @@ var LowerCase = /** @class */ (function () {
         }
         else {
             this.errores.push({
-                Tipo: 'Sintáctico',
+                Tipo: 'Semántico',
                 Fila: this.linea,
                 Columna: this.columna,
                 Description: 'Tipo de dato ' + typeof (texto) + ' incorrecto'

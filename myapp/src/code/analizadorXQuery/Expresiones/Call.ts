@@ -88,7 +88,7 @@ export class Call implements Expresion {
             else {
                 console.log('Faltan parametros en la funcion')
                 this.errores.push({
-                    Tipo: 'Sintáctico',
+                    Tipo: 'Semántico',
                     Fila: this.linea,
                     Columna: this.columna,
                     Description: 'Faltan parametros en la funcion ' + this.identificador
@@ -101,7 +101,7 @@ export class Call implements Expresion {
         else {
             console.log('Error la funcion no existe..')
             this.errores.push({
-                Tipo: 'Sintáctico',
+                Tipo: 'Semántico',
                 Fila: this.linea,
                 Columna: this.columna,
                 Description: 'La función  ' + this.identificador + ' no existe'

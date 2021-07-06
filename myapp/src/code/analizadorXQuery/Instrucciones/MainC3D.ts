@@ -27,10 +27,13 @@ export class MainC3D implements Instruccion {
     ejecutar(ent: Entorno): any {
 
         var flag = false;
-        var id = 'return';
+        var id = 'return'; 
         console.log(this.variables)
+        console.log(this.returns)
         for (let vari of this.variables) {
-            if (JSON.stringify(vari[1]) === JSON.stringify(this.returns)) {
+            console.log(JSON.stringify(vari[1])) //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            console.log(JSON.stringify(this.returns))
+            if (JSON.stringify(vari[1]) == JSON.stringify(this.returns)) {
                 flag = true;
                 id = vari[0];
             }
@@ -65,6 +68,7 @@ export class MainC3D implements Instruccion {
         var stack = [];
         var output = '/*------MAIN------*/\nvoid main() {\n PQ = 0; HQ = 0;\n SP = 0; HP = 0;\n SPXP = 0; HPXP = 0;\n\n';
         //recorriendo las variables
+        console.log(variables)
         for (let variable of variables) {
             if (variable[1].length == 1) {
                 //si es un numero
@@ -88,6 +92,8 @@ export class MainC3D implements Instruccion {
         //recorremos el stack nuevamente
         for (let i = 0; i < stack.length; i++) {
             //validando posicion del valor a imprimir
+            console.log(stack[i][0])
+            console.log(id)
             if (stack[i][0] == id) {
                 //i es la posicion del stack donde se imprime
                 //validando si es un numero
@@ -132,11 +138,11 @@ export class MainC3D implements Instruccion {
             }
         }
 
+        console.log(output)
         //TODO: setear cont_label en el local storage
         this.SetStorage(cont_label, 'contadorEtiquetas');
         this.SetStorage(cont, 'contadorTemporales');
         this.SetStorage(output, 'Code3D');
-
         //agregando return
         /* output += 'return;\n}\n\n'
         return [output, cont]; */
