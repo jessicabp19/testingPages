@@ -15,6 +15,8 @@ const Routes = () => {
         <Switch>
             <Route exact path = "/tytusx/20211SVAC/G17" component={Navigation}/>
             <Route exact path = "/" component={Navigation}/>
+            <Route exact path = "/testingPages" component={Navigation}/>
+            <Route exact path = "/testingPages/" component={Navigation}/>
             <Route exact path = "/tytusx/20211SVAC/G30" component={Navigation}/>
             <Route exact path = "/tytusx/G30" component={Navigation}/>
             <Route exact path = "/tytusx/G30/reporte" component={Reporte}/>
