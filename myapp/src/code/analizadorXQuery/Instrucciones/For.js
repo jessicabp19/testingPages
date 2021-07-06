@@ -18,7 +18,7 @@ var For = /** @class */ (function () {
             var output = [];
             //se analiza el path
             var parserXPath = new parse(this.path);
-            var data = JSON.parse(localStorage.getItem('XML'));
+            var data = JSON.parse(sessionStorage.getItem('XML'));
             //se ejecuta el path
             var resultado_xpath = parserXPath.Ejecutar(data);
             //se analiza y se ejecuta la nueva salida
@@ -88,28 +88,28 @@ var For = /** @class */ (function () {
         }
     };
     For.prototype.SetStorage = function (data, id) {
-        localStorage.setItem(id, JSON.stringify(data));
+        sessionStorage.setItem(id, JSON.stringify(data));
     };
     For.prototype.GetStorage = function (id) {
-        var data = localStorage.getItem(id);
+        var data = sessionStorage.getItem(id);
         return JSON.parse(data);
     };
     //obtener contador
     For.prototype.GetErrorStorage = function () {
-        var data = localStorage.getItem('errores_xquery');
+        var data = sessionStorage.getItem('errores_xquery');
         return JSON.parse(data);
     };
     //actualizar contador
     For.prototype.SetErrorStorage = function (error) {
-        localStorage.setItem('errores_xquery', JSON.stringify(error));
+        sessionStorage.setItem('errores_xquery', JSON.stringify(error));
     };
     //actualizar contador
     For.prototype.SetTablaStorage = function (tabla) {
-        localStorage.setItem('tabla', JSON.stringify(tabla));
+        sessionStorage.setItem('tabla', JSON.stringify(tabla));
     };
     //obtener tabla simbolos
     For.prototype.GetTablaStorage = function () {
-        var data = localStorage.getItem('tabla');
+        var data = sessionStorage.getItem('tabla');
         return JSON.parse(data);
     };
     return For;

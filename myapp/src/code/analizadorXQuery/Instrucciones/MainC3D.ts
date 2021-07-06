@@ -50,13 +50,13 @@ export class MainC3D implements Instruccion {
     }
     //obtener contador
     GetCountStorage(): number {
-        var data = localStorage.getItem('contador');
+        var data = sessionStorage.getItem('contador');
         return Number(JSON.parse(data));
     }
 
     //actualizar contador
     SetStorage(contador: any, id: string) {
-        localStorage.setItem(id, contador);
+        sessionStorage.setItem(id, contador);
     }
 
 

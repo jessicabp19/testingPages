@@ -53,12 +53,12 @@ var UpperCase = /** @class */ (function () {
     };
     //obtener contador
     UpperCase.prototype.GetErrorStorage = function () {
-        var data = localStorage.getItem('errores_xquery');
+        var data = sessionStorage.getItem('errores_xquery');
         return JSON.parse(data);
     };
     //actualizar contador
     UpperCase.prototype.SetStorage = function (error) {
-        localStorage.setItem('errores_xquery', JSON.stringify(error));
+        sessionStorage.setItem('errores_xquery', JSON.stringify(error));
     };
     return UpperCase;
 }());

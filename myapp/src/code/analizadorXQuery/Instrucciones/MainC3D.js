@@ -33,12 +33,12 @@ var MainC3D = /** @class */ (function () {
     };
     //obtener contador
     MainC3D.prototype.GetCountStorage = function () {
-        var data = localStorage.getItem('contador');
+        var data = sessionStorage.getItem('contador');
         return Number(JSON.parse(data));
     };
     //actualizar contador
     MainC3D.prototype.SetStorage = function (contador, id) {
-        localStorage.setItem(id, contador);
+        sessionStorage.setItem(id, contador);
     };
     MainC3D.prototype.BuildC3D = function (variables, SP, HP, cont, id) {
         //TODO: este contador se va a traer al local storage

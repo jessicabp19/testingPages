@@ -23,12 +23,12 @@ var HeaderC3D = /** @class */ (function () {
     };
     //obtener contador
     HeaderC3D.prototype.GetCountStorage = function () {
-        var data = localStorage.getItem('contador');
+        var data = sessionStorage.getItem('contador');
         return Number(JSON.parse(data));
     };
     //actualizar contador
     HeaderC3D.prototype.SetStorage = function (contador) {
-        localStorage.setItem('contador', JSON.stringify(contador));
+        sessionStorage.setItem('contador', JSON.stringify(contador));
     };
     return HeaderC3D;
 }());

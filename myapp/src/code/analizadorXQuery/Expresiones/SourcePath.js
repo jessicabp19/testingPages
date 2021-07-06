@@ -34,7 +34,7 @@ var SourcePath = /** @class */ (function () {
         //se analiza el path
         var parserXPath = new parse(path);
         //obteniendo xml
-        var data = JSON.parse(localStorage.getItem('XML'));
+        var data = JSON.parse(sessionStorage.getItem('XML'));
         //se ejecuta el path
         var resultado_xpath = parserXPath.Ejecutar(data);
         return resultado_xpath;

@@ -106,21 +106,21 @@ var Call = /** @class */ (function () {
     };
     //obtener contador
     Call.prototype.GetErrorStorage = function () {
-        var data = localStorage.getItem('errores_xquery');
+        var data = sessionStorage.getItem('errores_xquery');
         return JSON.parse(data);
     };
     //actualizar contador
     Call.prototype.SetStorage = function (error) {
-        localStorage.setItem('errores_xquery', JSON.stringify(error));
+        sessionStorage.setItem('errores_xquery', JSON.stringify(error));
     };
     //obtener tabla simbolos
     Call.prototype.GetTablaStorage = function () {
-        var data = localStorage.getItem('tabla');
+        var data = sessionStorage.getItem('tabla');
         return JSON.parse(data);
     };
     //actualizar contador
     Call.prototype.SetTablaStorage = function (tabla) {
-        localStorage.setItem('tabla', JSON.stringify(tabla));
+        sessionStorage.setItem('tabla', JSON.stringify(tabla));
     };
     return Call;
 }());

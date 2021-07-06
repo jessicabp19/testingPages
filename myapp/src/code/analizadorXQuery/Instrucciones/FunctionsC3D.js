@@ -15,12 +15,12 @@ var FunctionsC3D = /** @class */ (function () {
     };
     //obtener contador
     FunctionsC3D.prototype.GetCountStorage = function () {
-        var data = localStorage.getItem('contador');
+        var data = sessionStorage.getItem('contador');
         return Number(JSON.parse(data));
     };
     //actualizar contador
     FunctionsC3D.prototype.SetStorage = function (contador) {
-        localStorage.setItem('contador', JSON.stringify(contador));
+        sessionStorage.setItem('contador', JSON.stringify(contador));
     };
     return FunctionsC3D;
 }());

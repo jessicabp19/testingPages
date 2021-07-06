@@ -31,12 +31,12 @@ export class Let implements Instruccion {
     
     //obtener contador
     GetCountStorage(): number {
-        var data = localStorage.getItem('contador');
+        var data = sessionStorage.getItem('contador');
         return Number(JSON.parse(data));
     }
     //actualizar contador
     SetCountStorage(contador: number) {
-        localStorage.setItem('contador', JSON.stringify(contador));
+        sessionStorage.setItem('contador', JSON.stringify(contador));
     }
 
     VariableC3D(ent: Entorno):any{
@@ -79,11 +79,11 @@ export class Let implements Instruccion {
 
     //obtener tabla simbolos
     GetTablaStorage(): any {
-        var data = localStorage.getItem('tabla');
+        var data = sessionStorage.getItem('tabla');
         return JSON.parse(data);
     }
     //actualizar contador
     SetTablaStorage(tabla: any) {
-        localStorage.setItem('tabla', JSON.stringify(tabla));
+        sessionStorage.setItem('tabla', JSON.stringify(tabla));
     }
 }

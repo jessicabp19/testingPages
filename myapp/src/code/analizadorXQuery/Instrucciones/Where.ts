@@ -83,12 +83,12 @@ export class Where implements Instruccion {
     }
     //obtener contador
     GetErrorStorage(): any {
-        var data = localStorage.getItem('errores_xquery');
+        var data = sessionStorage.getItem('errores_xquery');
         return JSON.parse(data);
     }
     //actualizar contador
     SetStorage(error: any) {
-        localStorage.setItem('errores_xquery', JSON.stringify(error));
+        sessionStorage.setItem('errores_xquery', JSON.stringify(error));
     }
 
 }

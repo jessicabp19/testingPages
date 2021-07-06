@@ -25,7 +25,7 @@ export class For implements Instruccion {
             var output = []
             //se analiza el path
             var parserXPath = new parse(this.path);
-            var data = JSON.parse(localStorage.getItem('XML'));
+            var data = JSON.parse(sessionStorage.getItem('XML'));
 
             //se ejecuta el path
             var resultado_xpath = parserXPath.Ejecutar(data);
@@ -102,29 +102,29 @@ export class For implements Instruccion {
     }
 
     SetStorage(data: any, id: string) {
-        localStorage.setItem(id, JSON.stringify(data));
+        sessionStorage.setItem(id, JSON.stringify(data));
     }
 
     GetStorage(id: string): any {
-        var data = localStorage.getItem(id);
+        var data = sessionStorage.getItem(id);
         return JSON.parse(data);
     }
     //obtener contador
     GetErrorStorage(): any {
-        var data = localStorage.getItem('errores_xquery');
+        var data = sessionStorage.getItem('errores_xquery');
         return JSON.parse(data);
     }
     //actualizar contador
     SetErrorStorage(error: any) {
-        localStorage.setItem('errores_xquery', JSON.stringify(error));
+        sessionStorage.setItem('errores_xquery', JSON.stringify(error));
     }
     //actualizar contador
     SetTablaStorage(tabla: any) {
-        localStorage.setItem('tabla', JSON.stringify(tabla));
+        sessionStorage.setItem('tabla', JSON.stringify(tabla));
     }
     //obtener tabla simbolos
     GetTablaStorage(): any {
-        var data = localStorage.getItem('tabla');
+        var data = sessionStorage.getItem('tabla');
         return JSON.parse(data);
     }
 

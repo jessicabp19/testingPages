@@ -71,12 +71,12 @@ var Where = /** @class */ (function () {
     };
     //obtener contador
     Where.prototype.GetErrorStorage = function () {
-        var data = localStorage.getItem('errores_xquery');
+        var data = sessionStorage.getItem('errores_xquery');
         return JSON.parse(data);
     };
     //actualizar contador
     Where.prototype.SetStorage = function (error) {
-        localStorage.setItem('errores_xquery', JSON.stringify(error));
+        sessionStorage.setItem('errores_xquery', JSON.stringify(error));
     };
     return Where;
 }());

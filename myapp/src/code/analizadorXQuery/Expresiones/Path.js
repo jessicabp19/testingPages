@@ -64,12 +64,12 @@ var Path = /** @class */ (function () {
     };
     //obtener contador
     Path.prototype.GetErrorStorage = function () {
-        var data = localStorage.getItem('errores_xquery');
+        var data = sessionStorage.getItem('errores_xquery');
         return JSON.parse(data);
     };
     //actualizar contador
     Path.prototype.SetStorage = function (error) {
-        localStorage.setItem('errores_xquery', JSON.stringify(error));
+        sessionStorage.setItem('errores_xquery', JSON.stringify(error));
     };
     return Path;
 }());

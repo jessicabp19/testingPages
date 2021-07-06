@@ -23,12 +23,12 @@ var Let = /** @class */ (function () {
     };
     //obtener contador
     Let.prototype.GetCountStorage = function () {
-        var data = localStorage.getItem('contador');
+        var data = sessionStorage.getItem('contador');
         return Number(JSON.parse(data));
     };
     //actualizar contador
     Let.prototype.SetCountStorage = function (contador) {
-        localStorage.setItem('contador', JSON.stringify(contador));
+        sessionStorage.setItem('contador', JSON.stringify(contador));
     };
     Let.prototype.VariableC3D = function (ent) {
         console.log(this.identificador);
@@ -69,12 +69,12 @@ var Let = /** @class */ (function () {
     };
     //obtener tabla simbolos
     Let.prototype.GetTablaStorage = function () {
-        var data = localStorage.getItem('tabla');
+        var data = sessionStorage.getItem('tabla');
         return JSON.parse(data);
     };
     //actualizar contador
     Let.prototype.SetTablaStorage = function (tabla) {
-        localStorage.setItem('tabla', JSON.stringify(tabla));
+        sessionStorage.setItem('tabla', JSON.stringify(tabla));
     };
     return Let;
 }());

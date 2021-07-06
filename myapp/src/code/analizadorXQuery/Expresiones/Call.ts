@@ -121,22 +121,22 @@ export class Call implements Expresion {
 
     //obtener contador
     GetErrorStorage(): any {
-        var data = localStorage.getItem('errores_xquery');
+        var data = sessionStorage.getItem('errores_xquery');
         return JSON.parse(data);
     }
     //actualizar contador
     SetStorage(error: any) {
-        localStorage.setItem('errores_xquery', JSON.stringify(error));
+        sessionStorage.setItem('errores_xquery', JSON.stringify(error));
     }
 
     //obtener tabla simbolos
     GetTablaStorage(): any {
-        var data = localStorage.getItem('tabla');
+        var data = sessionStorage.getItem('tabla');
         return JSON.parse(data);
     }
     //actualizar contador
     SetTablaStorage(tabla: any) {
-        localStorage.setItem('tabla', JSON.stringify(tabla));
+        sessionStorage.setItem('tabla', JSON.stringify(tabla));
     }
 
 

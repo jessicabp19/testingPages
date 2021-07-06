@@ -25,12 +25,12 @@ export class FunctionsC3D implements Instruccion {
     }
     //obtener contador
     GetCountStorage(): number {
-        var data = localStorage.getItem('contador');
+        var data = sessionStorage.getItem('contador');
         return Number(JSON.parse(data));
     }
     //actualizar contador
     SetStorage(contador: number) {
-        localStorage.setItem('contador', JSON.stringify(contador));
+        sessionStorage.setItem('contador', JSON.stringify(contador));
     }
 
 

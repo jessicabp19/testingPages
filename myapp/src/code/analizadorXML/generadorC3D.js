@@ -483,16 +483,16 @@ export class GeneradorC3D {
     }
 
     SetStorage(data, id) {
-        localStorage.setItem(id, JSON.stringify(data));
+        sessionStorage.setItem(id, JSON.stringify(data));
     }
 
     GetStorage(id){
-        var data = localStorage.getItem(id);
+        var data = sessionStorage.getItem(id);
         return JSON.parse(data);
     }
 
     GetStorageS(id){
-        var data = localStorage.getItem(id);
+        var data = sessionStorage.getItem(id);
         console.log("GETSTORAGESSSSSS");
         console.log(data);
         return data;
