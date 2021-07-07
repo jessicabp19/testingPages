@@ -110,6 +110,7 @@ class Navigation extends React.Component {
         if (text == "") return
 
 
+        console.log("DEPLOY CON ARREGLO EN INTERPRETE.TS/JS");
 
         //se analiza
         /*var funcion = parseXPath(text);

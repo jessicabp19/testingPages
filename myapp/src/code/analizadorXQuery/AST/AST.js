@@ -29,7 +29,7 @@ var AST = /** @class */ (function () {
     // }
     //obtener errores
     AST.prototype.GetErrorStorage = function () {
-        var data = localStorage.getItem('errores_xquery');
+        var data = sessionStorage.getItem('errores_xquery');
         return JSON.parse(data);
     };
     AST.prototype.CrearEntorno = function (id, anterior) {
@@ -56,11 +56,11 @@ var AST = /** @class */ (function () {
     };
     //actualizar contador
     AST.prototype.SetTablaStorage = function (tabla) {
-        localStorage.setItem('tabla', JSON.stringify(tabla));
+        sessionStorage.setItem('tabla', JSON.stringify(tabla));
     };
     //obtener tabla simbolos
     AST.prototype.GetTablaStorage = function () {
-        var data = localStorage.getItem('tabla');
+        var data = sessionStorage.getItem('tabla');
         return JSON.parse(data);
     };
     return AST;
